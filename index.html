@@ -1,82 +1,201 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Qubo's Drop</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f172a;
-            color: white;
-            text-align: center;
-            padding: 50px 20px;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Qubo's Drop</title>
 
-        .container {
-            max-width: 700px;
-            margin: 0 auto;
-        }
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
 
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
+body{
+    font-family:Arial, sans-serif;
+    min-height:100vh;
+    background:linear-gradient(135deg,#0f172a,#1e1b4b,#312e81);
+    color:white;
+    overflow-x:hidden;
+}
 
-        p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-        }
+.bg{
+    position:fixed;
+    inset:0;
+    z-index:-1;
+}
 
-        .card {
-            background: #1e293b;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 30px;
-        }
+.cube{
+    position:absolute;
+    width:30px;
+    height:30px;
+    background:rgba(255,255,255,0.08);
+    border-radius:8px;
+    animation:fall linear infinite;
+}
 
-        a {
-            color: #60a5fa;
-            text-decoration: none;
-        }
+.cube:nth-child(1){left:10%;animation-duration:10s;}
+.cube:nth-child(2){left:25%;animation-duration:14s;}
+.cube:nth-child(3){left:40%;animation-duration:8s;}
+.cube:nth-child(4){left:60%;animation-duration:12s;}
+.cube:nth-child(5){left:80%;animation-duration:9s;}
 
-        a:hover {
-            text-decoration: underline;
-        }
+@keyframes fall{
+    from{
+        transform:translateY(-100px) rotate(0deg);
+    }
+    to{
+        transform:translateY(110vh) rotate(360deg);
+    }
+}
 
-        .footer {
-            margin-top: 40px;
-            color: #94a3b8;
-            font-size: 0.9rem;
-        }
-    </style>
+.container{
+    max-width:1000px;
+    margin:auto;
+    padding:40px 20px;
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px;
+}
+
+.logo{
+    font-size:4rem;
+    font-weight:bold;
+    margin-bottom:20px;
+    text-shadow:0 0 25px rgba(255,255,255,0.3);
+}
+
+.subtitle{
+    font-size:1.3rem;
+    color:#dbeafe;
+    margin-bottom:40px;
+}
+
+.play-btn{
+    display:inline-block;
+    padding:16px 32px;
+    border-radius:16px;
+    background:linear-gradient(90deg,#3b82f6,#8b5cf6);
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.25s;
+}
+
+.play-btn:hover{
+    transform:scale(1.05);
+}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    margin-top:40px;
+}
+
+.card{
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(12px);
+    border:1px solid rgba(255,255,255,0.08);
+    border-radius:20px;
+    padding:25px;
+    transition:.25s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.card h2{
+    margin-bottom:12px;
+}
+
+.card p{
+    color:#d1d5db;
+    line-height:1.6;
+}
+
+.contact{
+    margin-top:50px;
+    text-align:center;
+}
+
+.contact a{
+    color:#93c5fd;
+    text-decoration:none;
+}
+
+.footer{
+    text-align:center;
+    margin-top:70px;
+    color:#94a3b8;
+}
+</style>
 </head>
 <body>
 
+<div class="bg">
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+    <div class="cube"></div>
+</div>
+
 <div class="container">
-    <h1>Qubo's Drop</h1>
 
-    <p>
-        Dodge obstacles, collect rewards and set new records!
-    </p>
+    <section class="hero">
+        <div class="logo">🎮 Qubo's Drop</div>
 
-    <div class="card">
-        <h2>Contact</h2>
-        <p>Email: qubos.drop.game@gmail.com</p>
+        <div class="subtitle">
+            Dodge obstacles, collect rewards and beat your records!
+        </div>
+
+        <a href="#" class="play-btn">
+            Coming Soon on Google Play
+        </a>
+    </section>
+
+    <div class="cards">
+
+        <div class="card">
+            <h2>⚡ Fast Gameplay</h2>
+            <p>
+                React quickly, avoid obstacles and survive as long as possible.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🏆 Records</h2>
+            <p>
+                Compete with yourself and reach new personal bests.
+            </p>
+        </div>
+
+        <div class="card">
+            <h2>🎁 Rewards</h2>
+            <p>
+                Unlock rewards and progress through the game.
+            </p>
+        </div>
+
     </div>
 
-    <div class="card">
-        <h2>Privacy & Ads</h2>
-        <p>
-            App advertising authorization file:
-            <br>
-            <a href="app-ads.txt">app-ads.txt</a>
-        </p>
+    <div class="contact">
+        <h2>📧 Contact</h2>
+        <br>
+        <a href="mailto:qubos.drop.game@gmail.com">
+            qubos.drop.game@gmail.com
+        </a>
     </div>
 
     <div class="footer">
         © 2026 Qubo's Drop
     </div>
+
 </div>
 
 </body>
