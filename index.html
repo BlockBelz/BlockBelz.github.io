@@ -142,6 +142,86 @@ body{
 .footer a:hover{
     text-decoration:underline;
 }
+/* ---------- SCREENSHOTS ---------- */
+
+.screenshots{
+    margin-top:80px;
+}
+
+.screenshots h2{
+    text-align:center;
+    font-size:2rem;
+    margin-bottom:35px;
+}
+
+.slider{
+    position:relative;
+    max-width:900px;
+    margin:auto;
+    overflow:hidden;
+    border-radius:26px;
+}
+
+.slides{
+    display:flex;
+    transition:.5s ease;
+}
+
+.slides img{
+    width:100%;
+    flex-shrink:0;
+    border-radius:26px;
+    border:2px solid rgba(255,255,255,.08);
+}
+
+.arrow{
+    position:absolute;
+    top:50%;
+    transform:translateY(-50%);
+    width:55px;
+    height:55px;
+    border:none;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:28px;
+    color:white;
+    background:rgba(0,0,0,.45);
+    backdrop-filter:blur(10px);
+    transition:.25s;
+}
+
+.arrow:hover{
+    background:#3b82f6;
+}
+
+.prev{
+    left:18px;
+}
+
+.next{
+    right:18px;
+}
+
+.dots{
+    display:flex;
+    justify-content:center;
+    gap:12px;
+    margin-top:18px;
+}
+
+.dot{
+    width:13px;
+    height:13px;
+    border-radius:50%;
+    background:#64748b;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.dot.active{
+    background:#60a5fa;
+    transform:scale(1.25);
+}
 </style>
 </head>
 <body>
@@ -167,7 +247,38 @@ body{
             Coming Soon on Google Play
         </a>
     </section>
+<section class="screenshots">
 
+<h2>📸 Gameplay Preview</h2>
+
+<div class="slider">
+
+    <div class="slides">
+
+        <img src="images/1.png">
+
+        <img src="images/2.png">
+
+        <img src="images/3.png">
+
+        <img src="images/4.png">
+
+    </div>
+
+    <button class="arrow prev">&#10094;</button>
+
+    <button class="arrow next">&#10095;</button>
+
+</div>
+
+<div class="dots">
+    <div class="dot active"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+    <div class="dot"></div>
+</div>
+
+</section>
     <div class="cards">
 
         <div class="card">
@@ -209,6 +320,65 @@ body{
 </div>
 
 </div>
+<script>
 
+const slides=document.querySelector(".slides");
+const dots=document.querySelectorAll(".dot");
+
+let index=0;
+
+function update(){
+
+slides.style.transform=`translateX(-${index*100}%)`;
+
+dots.forEach(dot=>dot.classList.remove("active"));
+
+dots[index].classList.add("active");
+
+}
+
+document.querySelector(".next").onclick=()=>{
+
+index++;
+
+if(index>3) index=0;
+
+update();
+
+}
+
+document.querySelector(".prev").onclick=()=>{
+
+index--;
+
+if(index<0) index=3;
+
+update();
+
+}
+
+dots.forEach((dot,i)=>{
+
+dot.onclick=()=>{
+
+index=i;
+
+update();
+
+}
+
+});
+
+setInterval(()=>{
+
+index++;
+
+if(index>3) index=0;
+
+update();
+
+},4000);
+
+</script>
 </body>
 </html>
