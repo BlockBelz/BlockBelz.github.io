@@ -153,13 +153,15 @@ body{
     font-size:2rem;
     margin-bottom:35px;
 }
-
+.screenshots{
+    margin:90px auto;
+}
 .slider{
     position:relative;
-    max-width:900px;
+    width:320px;
     margin:auto;
     overflow:hidden;
-    border-radius:26px;
+    border-radius:30px;
 }
 
 .slides{
@@ -168,10 +170,12 @@ body{
 }
 
 .slides img{
-    width:100%;
+    width:320px;
+    height:auto;
     flex-shrink:0;
-    border-radius:26px;
-    border:2px solid rgba(255,255,255,.08);
+    border-radius:24px;
+    border:2px solid rgba(255,255,255,.12);
+    box-shadow:0 15px 45px rgba(0,0,0,.45);
 }
 
 .arrow{
@@ -250,7 +254,7 @@ body{
 <section class="screenshots">
 
 <h2>📸 Gameplay Preview</h2>
-
+<div class="slider">
 <div class="slides">
 
     <img src="images/1.png">
