@@ -268,11 +268,6 @@ body{
 
 </div>
 
-    <button class="arrow prev">&#10094;</button>
-
-    <button class="arrow next">&#10095;</button>
-
-</div>
 
 <div class="dots">
     <div class="dot active"></div>
@@ -344,19 +339,6 @@ function update() {
 
 }
 
-document.querySelector(".next").onclick = () => {
-
-    index = (index + 1) % images.length;
-    update();
-
-};
-
-document.querySelector(".prev").onclick = () => {
-
-    index = (index - 1 + images.length) % images.length;
-    update();
-
-};
 
 dots.forEach((dot, i) => {
 
